@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ai code explainer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Ai code explainer</h1>
+    <div class="controls">
+        <select id="codeLanguage">
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="csharp">C#</option>
+            <option value="cpp">C++</option>
+            <option value="react">React</option>
+            </select>
+
+            <select id="level">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>      
+                <option value="advanced">Advanced</option>
+                <option value="expert">Expert</option>
+            </select>
+
+            <select id="explainLanguage">
+                <option value="english">English</option>
+                <option value="telugu">Telugu</option>
+                <!-- <option value="hindi">Hindi</option> -->
+            </select>
+
+            <button onclick="explainCode()">Explain</button>
+    </div>
+    <div class="container">
+        <div class="box">
+            <div class="box-header">
+                <h3>Explanation</h3>
+                <div class="box-buttons">
+                  <button onclick="copyExplanation()">Copy Explanation</button>
+                </div>
+            </div>
+        <div id="loading" class="loading">
+          <div class="spinner"></div>
+            <p id="loadingText">AI is explaining the code....</p>
+        </div>
+        <pre id="output">Your code explanation will appear here...</pre>
+        </div>
+    <div class="box">
+            <div class="box-header">
+                <h3>Code</h3>
+                <div class="box-buttons">
+                  <button onclick="pasteCode()">Past Code</button>
+                  <button onclick="clearCode()">Clear Code</button>
+                </div>
+            </div>
+             <textarea id="codeInput" placeholder="Paste your code here..."></textarea>
+             <br>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
