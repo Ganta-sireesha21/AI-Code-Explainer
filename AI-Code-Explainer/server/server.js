@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 require("dotenv").config();
 
 const { GoogleGenAI } = require("@google/genai");
@@ -7,6 +8,9 @@ const { GoogleGenAI } = require("@google/genai");
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// ✅ Serve static frontend files
+app.use(express.static(path.join(__dirname, "../public")));
 
 // Initialize Gemini AI
 const ai = new GoogleGenAI({
@@ -66,6 +70,11 @@ ${code}
           : "కోడ్‌ను వివరించడంలో విఫలమైంది.",
     });
   }
+});
+
+// ✅ Fallback to index.html for root
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
 const PORT = process.env.PORT || 5000;
